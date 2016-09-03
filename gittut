@@ -1,0 +1,117 @@
+git tut
+
+
+1.git pull path
+if you made changes
+2.git add .
+3.git status
+4.git commit -m "message" any changes
+5.git remote add origin path
+5.1.git push origin master
+6.git branch branchname
+7.git checout branchname
+8.git merge branchname master
+9.git reset head
+10.git revert
+11.git checkout commitid
+12.git remote add upstream add
+13.git push upstream/master master
+14.git checkout -b branchname (to make a branch and switch to it simultaneously)
+15.git merge branchname(master makes a commit which is linked to previous commit and also gets linked to branch last commit but still not merged)
+16.git checkout branchname;git merge master (finally master and branch combine together for eg look here http://learngitbranching.js.org/)
+
+
+
+level 2
+
+Git Rebase
+
+1.The second way of combining work between branches is rebasing. Rebasing essentially takes a set of commits, "copies" them,
+and plops them down somewhere else.
+While this sounds confusing, the advantage of rebasing is that it can be used to make a nice linear sequence of commits.
+The commit log / history of the repository will be a lot cleaner if only rebasing is allowed.
+
+2.git rebase master (by writing this actually the branch moves and thus the branch nodes copy is made and added to next to 
+master remember copy of branch added not the branch itself it exist somewhere hidden in project)
+commands other 
+
+3.git rebase bugFix (now master moves and both point to the commit c3 which is copy of branch learn here : http://learngitbranching.js.org/)
+
+
+level 1(Head)
+
+Moving around in Git
+
+1.Before we get to some of the more advanced features of Git, 
+  it's important to understand different ways to move through the commit tree that represents your project.
+  Once you're comfortable moving around, 
+  your powers with other git commands will be amplified!
+
+2.Detaching HEAD just means attaching it to a commit instead of a branch. This is what it looks like beforehand:
+  HEAD -> master -> C1
+command :git checkout c1	
+
+3.Though git hashes are long we can use some part of it after which it becomes unique so that we can easily dive checkout commit
+
+4.relative commits (try more )
+  for starting two of them are  (^ to go up one commit and ~<num> to move num of times)
+
+  use of ~
+  One of the most common ways I use relative refs is to move branches around.
+  You can directly reassign a branch to a commit with the -f option. So something like:
+
+  command : git branch -f master HEAD~3(this moves master to 3 commits back let it be c1 then c2,c3,c4 commit of branch bugFix)
+  (Hint : you can use "git checkout Commitname" to assign head and then you can move any branchname to that point with command "git branch -f master(any branchname i took master by default) head~num ")
+  Moves (by force) the master branch to three parents behind HEAD.
+
+(level 1)
+ reversing changes in git
+1. git Reset
+   git reset head~1
+git reset reverts changes by moving a branch reference backwards in time to an older commit. 
+In this sense you can think of it as "rewriting history;"
+git reset will move a branch backwards as if the commit had never been made in the first place.
+ after resetting old commit exist but hidden as in rebasing .
+
+2.git revert need to be understood (makes extra commit which is copy of previous one with all changes reverted)
+
+(level 1)Git branching
+command : git cherry-pick C1 C2 and so on and master gets added to last of this commit ,this commit comes from seperate branch and you add it like 
+functionalities you added at different time at different branches you want to use some from those from each branch you use cherry-pick to pick the commits with those code
+
+(level 2)
+1.
+Git Interactive Rebase
+
+	Git cherry-pick is great when you know which commits you want 
+	(and you know their corresponding hashes) -- it's hard to beat the simplicity it provides.
+	But what about the situation where you don't know what commits you want? Thankfully git has you covered there as well!
+	We can use interactive rebasing for this -- it's the best way to review a series of commits you're about to rebase.
+2.
+When the interactive rebase dialog opens, you have the ability to do 3 things:
+
+You can reorder commits simply by changing their order in the UI (in our window this means dragging and dropping with the mouse).
+You can choose to completely omit some commits. This is designated by pick -- toggling pick off means you want to drop the commit.
+Lastly, you can squash commits. Unfortunately our levels don't support this for a few logistical reasons, so I'll skip over the details of this. Long story short, though -- it allows you to combine commits.
+Great! (for example learngitbranching.js)
+	Git copies down commits in the exact same way you specify through the UI.
+we can use undo and reset to cancel out any change
+
+(level 3) locally stacked commit
+
+	1.Removing debug commands and comments added during fixing of a project 
+	Locally stacked commits
+
+Here's a development situation that often happens: I'm trying to track down a bug but it is quite elusive. 
+In order to aid in my detective work,I put in a few debug commands and a few print statements.
+All of these debugging / print statements are in their own commits. Finally I track down the bug, fix it, and rejoice!
+Only problem is that I now need to get my bugFix back into the master branch. If I simply fast-forwarded master,
+then master would get all my debug statements which is undesirable. 
+
+Let's dive into the details... 
+1.cat
+2.vim
+3.touch
+4.mv
+5.mkdir
+6.echo
