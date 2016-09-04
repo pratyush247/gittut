@@ -12,3 +12,17 @@ import
 	.content_type = models.ForeignKey(ContentType, limit_choices_to=profile_or_event)
 	.object_id = models.PositiveIntegerField()
 	.profie_event = generic.GenericForeignKey()
+
+2.http://jazstudios.blogspot.in/2009/10/django-model-inheritance-with.html very important link for snippets on django model inheritance.
+
+
+Sorry to put it here but i found it useful for Gsoc :
+	https://www.quora.com/How-can-person-get-selected-in-KDE-Season-of-Code-or-Google-Summer-of-Code
+	1.ask at irc/mailing list for any project to work one.
+	2.need to solve bug to earn repo
+	3.choose a projectyou want to work on in that organisation
+	4.for kde especially for eg :file a bug https://bugs.kde.org/ here.
+	5.similarly for mozilla and other communities,choose a topic in which you have expertise
+	6.https://community.kde.org/Get_Involved ,https://community.kde.org/GSoC,https://community.kde.org/Incubator,
+	  https://community.kde.org/Get_Involved/development.
+	7.another option https://buildmlearn.org/
