@@ -1,0 +1,14 @@
+1.using django generic relations
+a)knowing about contenttype framework
+b)COntentType is object that stores all model name
+c)
+import
+	.from django.contrib.contenttypes.models import ContentType
+
+ 	 Next you must create a dictionary so that the content types framework can know which models to limit your generic foreign key to:
+	.profile_or_event = {'app_label__in': ('myapp',), 'model__in': ('profile', 'event', ), }
+
+	Finally you must add 3 fields into the model in which you wish to have the generic foreign key:
+	.content_type = models.ForeignKey(ContentType, limit_choices_to=profile_or_event)
+	.object_id = models.PositiveIntegerField()
+	.profie_event = generic.GenericForeignKey()
