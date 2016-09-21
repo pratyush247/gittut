@@ -108,6 +108,29 @@ All of these debugging / print statements are in their own commits. Finally I tr
 Only problem is that I now need to get my bugFix back into the master branch. If I simply fast-forwarded master,
 then master would get all my debug statements which is undesirable. 
 
+point :to pick one commit and join it directly to master
+a)git checkout master
+b)git cherry-pick commitno
+
+(level 1)
+ Amend
+1.git checkout master 
+2.git cherry-pick commitno
+3.git commit --ammend commitno
+4.git cheryy-pick commitnoamended
+
+
+
+(level 1) 
+		Git Tags
+
+As you have learned from previous lessons, branches are easy to move around and often refer to different commits as work is completed on them.
+Branches are easily mutated, often temporary, and always changing.
+If that's the case, you may be wondering if there's a way to permanently mark historical points in your project's history.
+For things like major releases and big merges, is there any way to mark these commits with something more permanent than a branch?
+
+git tag v1 C1
+when checked out head gets detaches because it is not directly checked
 Let's dive into the details... 
 1.cat
 2.vim
@@ -115,3 +138,28 @@ Let's dive into the details...
 4.mv
 5.mkdir
 6.echo
+
+
+Note on git fetch :
+git fetch, however, does not change anything about your local state.
+It will not update your master branch or change anything about how your file system looks right now.
+This is important to understand because a lot of developers think that
+running git fetch will make their local work reflect the state of the remote.
+It may download all the necessary data to do that,
+but it does not actually change any of your local files. We will learn commands in later lessons to do just that :D
+
+Git pull:
+1.git fetch process executed 
+2.git merge executed origin/master and master local branch however point differently.\
+
+
+
+Simulating collaboration
+
+So here is the tricky thing -- for some of these upcoming lessons, we need to teach you how to pull down changes that were introduced in the remote.
+
+That means we need to essentially "pretend" that the remote was updated by one of your coworkers / friends / collaborators, sometimes on a specific branch or a certain number of commits.
+
+In order to do this, we introduced the aptly-named command git fakeTeamwork! It's pretty self explanatory, let's see a demo...
+
+http://learngitbranching.js.org/

@@ -1,0 +1,132 @@
+code tricks for stl libraries :
+
+Recently I found about SGI library which is included in the C++ STL library, it comes with some untraditional data structures (not likely to be supported by a language by default) such as Rope (data structure), Trie, Radix tree, Splay tree, Order statistic tree, Cartesian tree and Skip list. 
+These built-in data structures can save you much time and fuss implementing them from scratch during a contest, many problems can be solved in less than 5 lines using these libraries :)
+i.e :This problem is a direct problem on Rope data structure
+ACM-ICPC Live Archive
+
+For further information you can look up these data structures on wikpedia, also you can check this post on codeforces to get an idea on how to use them
+
+Implicit cartesian tree in GNU C++ STL. - Codeforces
+
+link :https://www.cs.princeton.edu/~rs/Algs3.cxx5/code.txt
+
+ABOUT GRAPHS :
+
+Graphs and trees are mostly represented by adjacency lists. In c++, an adjacency list is usually implemented as an array of int vectors:
+
+vector<int> v[SIZE];
+
+where v[i] represents the list of neighbors of the node labeled with i, and SIZE is the number of nodes in the graph.
+
+Sometimes graphs are implemented with adjacency matrices, which has pretty much only one reasonable way of implementing so I won't go into it.
+You should only choose the adjacency matrix implementation if the number of nodes is small  (on the order of thousands). 
+And typically when this is the case the input contains some form of an adjacency matrix.
+ 
+use:
+Adjacency matrices are better if a fast lookup is needed to check for the presence or absence of a link in dense graphs,
+while adjacency lists though slower are more memory efficient for relatively sparse graphs.
+
+link :http://www.technical-recipes.com/2015/graph-traversals-in-c-plus-plus-c-sharp/
+
+points :
+If you want a better and memory efficient method, then vector of vector method is fine. 
+The method you suggest i.e. vector<pair<int,int>>gvector<pair<int,int>>g is actually the Edge list representation of the Graph and 
+is not that handy when you need links from a particular node i.e. all child nodes from a parent node.
+Like for e.g. in a case of flow, you need to find a path and that must be node to node and not randomly.
+
+Trees:
+
+For example, if you need to use Balanced Binary Search Tree, you can use c++ STL's <map> or <set> as 
+they are usually the implementation of RB Tree thus all the operations are in  O(logn)O(logn) .
+If you master these two C++ STL, you can save a lot of precious time in contests.
+
+If you want to implement heap, you could use std::priority_queue.
+
+If you want to find the minimum spanning tree, 
+you could use an array of vectors for adjacency list or double dimensional array for adjacency matrix and so on.
+
+TYPES OF TREE :
+https://www.quora.com/What-are-the-types-of-trees-in-data-structures
+
+
+USE OF TREE:
+Plain tree data structure will not help much.Its a conceptual way how you can save data and retrieve it in less time.If plain tree is associated with certain constraints ,it will be quite useful.Lets take them one by one.
+
+BST:The left child key value will be less than the root and right key value will be greater than the root key  value .It is not quite useful when the data size as it may lead to creation of skew trees.That will again leads to O(n)  search complexity . \
+Socope up with this. BST datastructures is improved by implenting height balanced trees.There are AVL trees,red black trees
+
+AVL trees: AVL trees provides you with guaranteed O(logn) complexity for searching
+But this data structure is little costly in rotations when inserting or deleting new elements . so,there we have Red Black trees.
+
+RED BLACK TREE:This tree provides optimizations in rotations when inserting and deleting new elements in tree.For thorough understanding.
+Please refer the articles on GeeksforGeeks | A computer science portal for geeks and topcoder .
+
+But these all tree doesnot help in optimising very big scale data set and memory limitations provided by hardwares.
+So there comes the concept of B trees and B+ trees.They are fat trees with more than one key value on every node.
+They gives you fast search as now the elements will be available closer to root node compared to previous tree.
+Difference between b tree and b+ trees can be found on web easily with very good explanations.
+
+1.Representing hierarchical data
+2.Storing data in a way that makes it easily searchable
+3.Representing sorted lists of data
+4.As a workflow for compositing digital images for visual effects
+5.Routing algorithms
+
+AVL trees for searching, Compressed Tries and prefix, suffix trees for string mathcing, segment trees for range querying, Red black trees, splay trees and so on.
+Many of tree based implementations are done behind the scenes in search and other functions for your regular arrays in several languages.
+
+File structures - Each file is located in a particular directory and there is a specific hierarchy associated with files and directories.
+Auto-complete feature - Predicting words based on particular prefixes
+Decision Tree based Learning actually forms a formidable area of data mining research. Numerous famous methods exist like bagging, boosting, and modifications thereof which work on trees. Such work is often used to generate a predictive model.
+Needless to say most XML/Markup parsers use trees. See Apache Xerces for example. Or, the Xalan XSLT parser.
+A common problem in bioinformatics is to search huge databases to find matches for a given query string. Tries are a common occurrence there.
+
+
+
+You cell phone feature..where your contact gets listed the moment you start typing his/her name [ Autocomplete ]. TRIE data structure, a variation of Tree.
+
+Your hard disk file system: C drive has many fodlers...each folder can inturn have more folder...till file..[ Assume each Folder a non-leaf node and a File as the leaf nodes ]. GENERAL TREE data structure.
+
+Company Organisation Structures: A report to B, B and C report to D...
+
+Searching data.
+
+Realization of Inheritance in most programming languages. A inherits from B, B inherits from C, C inherits from D ...
+
+Routing algorithms where the next path/route of the packet is determined....endless :).
+
+
+We can insert/delete keys in moderate time (quicker than Arrays and slower than Unordered Linked Lists).
+
+For representing a city region telephone network.
+
+To represent an image in the form of a bitmap.
+
+To implement the undo function in a text editor.
+
+
+GRAPHS :
+Graphs are nothing but connected nodes(vertex). So any network related, routing, finding relation, path etc related real life applications use graphs.
+
+Connecting with friends on social media, where each user is a vertex, and when users connect they create an edge.
+Using GPS/Google Maps/Yahoo Maps, to find a route based on shortest route.
+Google, to search for webpages, where pages on the internet are linked to each other by hyperlinks; each page is a vertex and the link between two pages is an edge.
+On eCommerce websites relationship graphs are used to show recommendations.
+
+Facebook Friend
+Twitter follower
+Page Ranking
+Scientific Computation (Atom, Protein, etc)
+Network Traffic flow/Shortest path/Minimum spanning tree
+Website analysis
+Biological analysis
+VLSI
+
+Implementing execution of object files i.e dependency of object files to be which needs to be executed. (DFS in Graph)
+
+To find the shortest path between two vertex.(Consider each vertex as a City).
+
+
+IMPLEMENTATION :
+https://www.quora.com/How-do-the-top-competitive-programmers-represent-tree-or-graph-data-structures-in-their-c++-code
